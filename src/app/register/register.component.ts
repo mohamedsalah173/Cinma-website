@@ -12,15 +12,22 @@ export class RegisterComponent {
 
   registerForm = new FormGroup({
 
-    firstName: new FormControl(null),
+    firstName: new FormControl('',
+      [Validators.minLength(3),Validators.maxLength(10), Validators.required]),
 
-    lastName: new FormControl(null),
+    lastName: new FormControl('',
+      [Validators.minLength(3),Validators.maxLength(10), Validators.required]),
 
-    email: new FormControl(null),
-    
-    password: new FormControl(null),
+    email: new FormControl('',
+      [Validators.required, Validators.email]),
+
+    password: new FormControl('',
+      [Validators.required, Validators.pattern("^[A-Z][a-z0-9]{3,10}$")]),
 
   })
 
-
+registerSubmit(registerForm: FormGroup){
+  console.log(registerForm);
+  
+}
 }
