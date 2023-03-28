@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  constructor() {}
+  constructor( private _router:Router) {}
 
   registerForm = new FormGroup({
 
@@ -27,7 +28,7 @@ export class RegisterComponent {
   })
 
 registerSubmit(registerForm: FormGroup){
-  console.log(registerForm);
+  this._router.navigate(['/login']);
   
 }
 }
